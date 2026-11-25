@@ -1090,6 +1090,154 @@
         }
 
         /* ═══════════════════════════════════════════════
+           TEAM / CREATORS SECTION
+           ═══════════════════════════════════════════════ */
+        .team-section {
+            padding: var(--section-padding) 0;
+            background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 650px;
+            height: 650px;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-top: 3.5rem;
+            max-width: 950px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .team-card {
+            padding: 3rem 2.2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+        }
+
+        .team-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .team-card:hover::after {
+            opacity: 1;
+        }
+
+        .team-img-wrapper {
+            position: relative;
+            width: 170px;
+            height: 170px;
+            margin-bottom: 2rem;
+        }
+
+        .team-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--neon-green);
+            box-shadow: 0 0 25px var(--neon-green-glow);
+            transition: var(--transition-smooth);
+        }
+
+        .team-card:hover .team-img {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(0, 255, 136, 0.5);
+        }
+
+        .team-badge {
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0a0a0a;
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .team-name {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+        }
+
+        .team-role {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--neon-green);
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.05em;
+        }
+
+        .team-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 0.85rem;
+            padding: 0.85rem 1.25rem;
+            margin-bottom: 1.25rem;
+            width: 100%;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        .team-meta span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .team-meta i {
+            color: var(--neon-green);
+            font-size: 1.1rem;
+        }
+
+        .team-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ═══════════════════════════════════════════════
            CTA SECTION
            ═══════════════════════════════════════════════ */
         .cta {
@@ -1370,6 +1518,7 @@
         @media (max-width: 1024px) {
             .services-grid,
             .pricing-grid,
+            .team-grid,
             .testimonials-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1419,6 +1568,7 @@
 
             .services-grid,
             .pricing-grid,
+            .team-grid,
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
@@ -1556,6 +1706,7 @@
                 <li><a href="#gallery">Instalaciones</a></li>
                 <li><a href="#pricing">Planes</a></li>
                 <li><a href="#schedule">Horarios</a></li>
+                <li><a href="#team">Creadores</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
 
@@ -1577,6 +1728,7 @@
         <a href="#gallery">Instalaciones</a>
         <a href="#pricing">Planes</a>
         <a href="#schedule">Horarios</a>
+        <a href="#team">Creadores</a>
         <a href="#contact">Contacto</a>
         <a href="#pricing" class="btn btn-primary" style="margin-top: 1rem;">Únete Ahora</a>
     </div>
@@ -2071,6 +2223,64 @@
         </div>
     </section>
 
+    <!-- ═══════════════ CREADORES / EQUIPO ═══════════════ -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="text-center reveal">
+                <div class="section-tag mx-auto">
+                    <i class="ph ph-code"></i>
+                    Desarrolladores & Creadores
+                </div>
+                <h2 class="section-title">
+                    Detrás del <span class="highlight">Búnker</span>
+                </h2>
+                <p class="section-subtitle mx-auto">
+                    Ingeniería de software, diseño de interfaz y arquitectura tecnológica desarrollada para el ecosistema BunkerGym.
+                </p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Samuel Camargo -->
+                <div class="glass-card team-card reveal" style="transition-delay: 0.1s;">
+                    <div class="team-img-wrapper">
+                        <img src="img/team/SAMUEL.jfif" alt="Samuel Camargo" class="team-img" loading="lazy">
+                        <div class="team-badge">Frontend & UI/UX</div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Samuel Camargo</h3>
+                        <p class="team-role">Desarrollador / Arquitectura Web</p>
+                        <div class="team-meta">
+                            <span><i class="ph ph-identification-card"></i> C.I. 30.739.366</span>
+                            <span><i class="ph ph-graduation-cap"></i> UNERMB — Ing. y Tecnología</span>
+                        </div>
+                        <p class="team-desc">
+                            Líder en diseño frontend, arquitectura de componentes, estética dark mode neón y desarrollo de la landing page oficial de BunkerGym.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Angel Vasquez -->
+                <div class="glass-card team-card reveal" style="transition-delay: 0.2s;">
+                    <div class="team-img-wrapper">
+                        <img src="img/team/ANGEL.jfif" alt="Angel Vasquez" class="team-img" loading="lazy">
+                        <div class="team-badge">Backend & Base de Datos</div>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Angel Vasquez</h3>
+                        <p class="team-role">Desarrollador / Sistemas & Lógica</p>
+                        <div class="team-meta">
+                            <span><i class="ph ph-identification-card"></i> C.I. 31.080.064</span>
+                            <span><i class="ph ph-graduation-cap"></i> UNERMB — Ing. y Tecnología</span>
+                        </div>
+                        <p class="team-desc">
+                            Desarrollador de lógica de control de acceso por código QR, gestión de membresías, seguridad informática y backend de BunkerGym.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ═══════════════ CTA ═══════════════ -->
     <section class="cta" id="contact">
         <div class="container">
@@ -2131,6 +2341,7 @@
                         <li><a href="#services">Servicios</a></li>
                         <li><a href="#gallery">Instalaciones</a></li>
                         <li><a href="#pricing">Planes</a></li>
+                        <li><a href="#team">Creadores</a></li>
                     </ul>
                 </div>
 

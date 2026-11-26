@@ -1,0 +1,25 @@
+name: BunkerGym CI Check
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  verificar-proyecto:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar codigo del repositorio
+        uses: actions/checkout@v4
+
+      - name: Verificar archivos y carpetas obligatorias
+        run: |
+          test -f index.html
+          test -f README.md
+          test -f LICENSE
+          test -f DOCUMENTO_DEFENSA_UNIVERSIDAD.md
+          test -d img
+          test -d img/team
+          echo "Verificacion completada con exito"
